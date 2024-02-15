@@ -1,0 +1,19 @@
+[package]
+authors = ["ChiHai <ihciah@gmail.com>", "XuShuai <dyxushuai@gmail.com>"]
+categories = ["asynchronous", "network-programming"]
+description = "A compat wrapper for monoio."
+edition = "2021"
+keywords = ["runtime", "iouring", "async"]
+license = "MIT OR Apache-2.0"
+name = "monoio-compat"
+readme = "README.md"
+repository = "https://github.com/bytedance/monoio"
+version = "0.2.1"
+
+[dependencies]
+monoio = { version = "0.2.2", features = ["poll-io"] }
+reusable-box-future = "0.2"
+tokio = { version = "1", default-features = false, features = ["io-util"] }
+
+hyper = { version = "1.1", optional = true }
+pin-project-lite = { version = "0.2", optional = true }
