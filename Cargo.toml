@@ -5,15 +5,15 @@ description = "A compat wrapper for monoio."
 edition = "2021"
 keywords = ["runtime", "iouring", "async"]
 license = "MIT OR Apache-2.0"
-name = "monoio-compat"
+name = "monoio_compat"
 readme = "README.md"
 repository = "https://github.com/bytedance/monoio"
 version = "0.2.1"
 
 [dependencies]
 monoio = { version = "0.2.2", features = ["poll-io"] }
+hyper = "1.1.0"
+pin-project-lite = "0.2.13"
+pin-project = "1.1.4"
+tokio = "1.36.0"
 reusable-box-future = "0.2"
-tokio = { version = "1", default-features = false, features = ["io-util"] }
-
-hyper = { version = "1.1", optional = true }
-pin-project-lite = { version = "0.2", optional = true }

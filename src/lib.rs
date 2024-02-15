@@ -9,12 +9,11 @@ mod buf;
 mod safe_wrapper;
 mod tcp_unsafe;
 
-#[cfg(feature = "hyper")]
 pub mod hyper;
 
 pub use safe_wrapper::StreamWrapper;
 pub use tcp_unsafe::TcpStreamCompat as TcpStreamCompatUnsafe;
-pub use tokio::io::{AsyncRead, AsyncReadExt, AsyncWrite, AsyncWriteExt};
+pub use tokio::io::{AsyncRead, AsyncWrite};
 
 pub type TcpStreamCompat = StreamWrapper<monoio::net::TcpStream>;
 #[cfg(unix)]
@@ -22,7 +21,7 @@ pub type UnixStreamCompat = StreamWrapper<monoio::net::UnixStream>;
 
 #[cfg(test)]
 mod tests {
-    use crate::{AsyncReadExt, AsyncWriteExt, TcpStreamCompat, TcpStreamCompatUnsafe};
+    use crate::{TcpStreamCompat, TcpStreamCompatUnsafe};
 
     #[monoio::test_all]
     async fn test_rw() {
